@@ -9,6 +9,9 @@ const msalConfig = {
         cacheLocation: "localStorage",
         storeAuthStateInCookie: false,
     },
+    system: {
+        navigateToLoginRequestUrl: false,
+      },
 };
 
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
