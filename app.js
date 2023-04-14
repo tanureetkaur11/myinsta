@@ -1,33 +1,20 @@
 // Sign in
-// Sign in
 function signIn() {
     const loginRequest = {
-      scopes: ["openid", "profile"],
+        scopes: ["openid", "profile"],
     };
-  
+
     myMSALObj
-      .loginPopup(loginRequest)
-      .then((response) => {
-        console.log(response);
-        const account = myMSALObj.getAccount();
-        handleUserState(account);
-        // Redirect to instahome.html after successful sign-in
-        window.location.href = "instahome.html";
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-  
-  function handleUserState(account) {
-    if (account) {
-      // Handle the case when the user is logged in
-      console.log("User is logged in:", account);
-    } else {
-      // Handle the case when the user is not logged in
-      console.log("User is not logged in.");
-    }
-  }
+        .loginPopup(loginRequest)
+        .then((response) => {
+            console.log(response);
+            const account = myMSALObj.getAccount();
+            handleUserState(account);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
 
 // Sign out
 function signOut() {
