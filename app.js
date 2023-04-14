@@ -9,7 +9,7 @@ function signIn() {
       .then((response) => {
         console.log(response);
         const account = myMSALObj.getAccount();
-        handleUserState(account, true);
+        handleUserState(account);
       })
       .catch((error) => {
         console.error(error);
@@ -22,14 +22,12 @@ function signIn() {
   }
   
   // Handle user state
-  function handleUserState(account, shouldRedirect) {
+  function handleUserState(account) {
     if (account) {
       // User is logged in
       console.log(account);
-      if (shouldRedirect) {
-        // Redirect to home.html after successful sign-up or sign-in
-        window.location.href = "home.html";
-      }
+      // Redirect to home.html if the user is logged in
+      window.location.href = "home.html";
     } else {
       // User is logged out
     }
@@ -37,7 +35,7 @@ function signIn() {
   
   myMSALObj.handleRedirectPromise().then((response) => {
     const account = myMSALObj.getAccount();
-    handleUserState(account, false);
+    handleUserState(account);
   }).catch((error) => {
     console.error(error);
   });
