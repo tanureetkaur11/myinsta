@@ -18,7 +18,7 @@ function signIn() {
   
   function signOut() {
     myMSALObj.logout({
-      postLogoutRedirectUri: "index.html",
+      postLogoutRedirectUri: "http://localhost:5500/index.html",
     });
   }
   
@@ -28,7 +28,7 @@ function signIn() {
       // User is logged in
       console.log(account);
       // Redirect to home.html if the user is logged in
-      window.location.href = "home.html";
+      window.location.href = "http://localhost:5500/home.html";
     } else {
       // User is logged out
     }
