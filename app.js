@@ -16,9 +16,10 @@ function signIn() {
       });
   }
   
-  // Sign out
   function signOut() {
-    myMSALObj.logout();
+    myMSALObj.logout({
+      postLogoutRedirectUri: "index.html",
+    });
   }
   
   // Handle user state
